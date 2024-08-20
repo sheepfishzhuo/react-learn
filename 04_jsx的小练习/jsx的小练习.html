@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_使用jsx创建虚拟DOM</title>
+</head>
+<body>
+    <!-- 准备好一个“容器” -->
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom,用于支持react操作DOM -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel,用于将jsx语法编译成js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <!-- 引入jsx文件 -->
+    <script type="text/babel">  /* 此处一定要写babel */
+        // 模拟一些数据
+        const data = ['Angular', 'React', 'Vue']
+        // 1.创建虚拟DOM
+        const VDOM = (
+            <div>
+                <h1>前端JS框架列表</h1>
+                <ul>
+                    <li>Angular</li>
+                    <li>React</li>
+                    <li>Vue</li>
+                </ul>
+            </div>
+        )  /* 此处一定不要写引号，因为不是字符串 */
+        // 2.渲染到容器中
+        // ReactDOM.render(VDOM, document.getElementById('test'));
+        const root = ReactDOM.createRoot(document.getElementById('test'))
+        root.render(VDOM)
+    </script>
+</body>
+</html>
